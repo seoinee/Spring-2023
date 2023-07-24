@@ -24,7 +24,7 @@
     - 웹 어플리케이션 관련 기능, 트랜잭션 처리, 메시지 처리 등
     - 
 > BeanFactory interface
-– org.springframework.beans.factory.BeanFactory
+- org.springframework.beans.factory.BeanFactory
 - Spring container에 대한 기본적인 API 정의
   - <T> T getBean(String name, Class<T> requiredType)
     → 주어진 이름과 타입을 가진 bean을 찾아 반환
