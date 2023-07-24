@@ -123,6 +123,13 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
   - Container는 property로 전달할 의존 객체를 먼저 생성
   - 각 property에 대한 setter method를 실행하여 객체나 값을 전달
 
+** Anonymous bean 객체 생성 및 주입
+– <constructor-arg>나 <property>에서 <ref> 또는 ref 속성을 통해
+외부 bean 객체를 지정하지 않고 직접 필요한 의존 객체를 정의
+▪ <bean> element 중첩 사용
+– 내부에 선언된 anonymous bean은 식별자(id)를 갖지 않음
+▪ 공유(재사용) 불가
+
 ### 3. 프로토콜(Protocol)
 ---
 <br>
