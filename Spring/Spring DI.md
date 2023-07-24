@@ -1,6 +1,6 @@
 # Spring DI(1)
 
-## 기본형태
+## Spring Container
 ---
 <br>
 
