@@ -7,14 +7,14 @@
 ```
 
 ```
->> 핵심기능
-- Java 객체("bean")의 life-cycle 관리
+> 핵심기능
+>> Java 객체("bean")의 life-cycle 관리
   - 객체 생성, 초기화, 이용, 삭제(소멸)
-- Dependency Injection(DI) 수행
+>> Dependency Injection(DI) 수행
   - 의존 관계에 따라 bean들을 연결
     - 의존하는 bean에 대한 참조 생성("bean wiring")
 
->> Container의 종류
+> Container의 종류
 - BeanFactory interface의 구현체(class)
   - Bean 객체를 생성하고 DI를 실행하는 기본 기능 제공
 - ApplicationContext interface 및 그 sub-interface의 구현체(class)
