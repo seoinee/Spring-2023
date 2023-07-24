@@ -35,6 +35,7 @@
     → 주어진 이름을 가진 bean이 존재하는지 여부를 반환
   - boolean isPrototype(String name) / boolean isSingleton(String name)
   - boolean isTypeMatch(String name, Class targetType)
+  
 – 구현 클래스: XmlBeanFactory, SimpleJndiBeanFactory, StaticListableBeanFactory 등
 <br>
 
