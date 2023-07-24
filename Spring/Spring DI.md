@@ -91,21 +91,20 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
 ##  의존 관계 설정 - 생성자 방식
 1. 생성자 방식(constructor-based injection)
 - Bean의 생성자(constructor)를 통해 의존 객체를 주입
-– 이용가능한 생성자가 bean 클래스에 정의되어야 함
-– 설정 방법
-▪ <constructor-arg>를 사용하여 생성자의 인자(argument)를 지정
-✓ <value>값</value>: int, double, String 등 기본 데이터 타입의 값을 전달
-✓ <ref bean=“bean 식별자”/>: bean 속성으로 bean 객체의 참조를 전달
-▪ 값이나 객체를 <constructor-arg>의 value, ref 속성을 통해 지정 가능
-✓ <constructor-arg value=“값” />
-✓ <constructor-arg ref =“bean 식별자” />
+- 이용가능한 생성자가 bean 클래스에 정의되어야 함
+- 설정 방법
+  - <constructor-arg>를 사용하여 생성자의 인자(argument)를 지정
+    - <value>값</value>: int, double, String 등 기본 데이터 타입의 값을 전달
+    - <ref bean=“bean 식별자”/>: bean 속성으로 bean 객체의 참조를 전달
+  - 값이나 객체를 <constructor-arg>의 value, ref 속성을 통해 지정 가능
+    - <constructor-arg value=“값” />
+    - <constructor-arg ref =“bean 식별자” />
 – 효과
-▪ Container는 다른 bean이 의존하는 bean 객체를 먼저 생성한 후
-의존 객체나 값의 타입을 이용, 적절한 생성자를 찾아 실행
-✓ 의존 객체/값과 일치하거나 가장 근접한 타입의 인자를 가진 생성자 선택
-✓ 생성자 호출 시 의존 객체/값을 인자로 전달 (Dependency Injection)
+  - Container는 다른 bean이 의존하는 bean 객체를 먼저 생성한 후 의존 객체나 값의 타입을 이용, 적절한 생성자를 찾아 실행
+    - 의존 객체/값과 일치하거나 가장 근접한 타입의 인자를 가진 생성자 선택
+    - 생성자 호출 시 의존 객체/값을 인자로 전달 (Dependency Injection)
 
-###  2. HttpServletReponse
+##  의존 관계 설정 - Setter method 방식
 <br>
 
 ```
