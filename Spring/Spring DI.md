@@ -48,7 +48,7 @@
    - Spring MVC Framework에서 사용됨
 <br>
 
-##  HTTP 요청과 응답
+##  Bean 생성 및 사용
 ---
 <br>
 
