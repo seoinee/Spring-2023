@@ -3,10 +3,6 @@
 ## Spring Container
 ---
 <br>
-
-```
-
-```
 > 핵심기능
 - Java 객체("bean")의 life-cycle 관리
   - 객체 생성, 초기화, 이용, 삭제(소멸)
@@ -54,19 +50,26 @@
 
 ##  HTTP 요청과 응답
 ---
-###  1. HttpServletRequest
 <br>
 
 ```
-@Controller
-public class RequestInfo {
-	@RequestMapping("/requestInfo")
-	public void main(HttpServletRequest request) {
-		System.out.println("request.getMethod()="+request.getMethod());      // 요청 방법
-        System.out.println("request.getProtocol()="+request.getProtocol());  // 프로토콜의 종류와 버젼 HTTP/1.1
-        System.out.println("request.getScheme()="+request.getScheme());      // 프로토콜
-	}
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns=“http://www.springframework.org/schema/beans”
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="bean ID" class="생성할 bean 객체의 class 이름(package 경로 포함)">
+		<property name="bean의 property 이름">
+			<value>property 값</value>
+		</property>
+		<property name="bean의 property 이름" ref="참조할 bean의 ID" />
+	</bean>
+	<bean id="bean ID" class="생성할 bean 객체의 class 이름">
+		<constructor-arg><value>생성자의 파라미터 값</value></constructor-arg>
+		<constructor-arg><ref bean="참조할 bean의 ID" /></constructor-arg>
+	</bean>
+</beans>
+
 ```
 
 - 프로그램을 URL 통해 요청시 tomcat이 HttpServletRequest 객체를 만들고 요청한 정보를 객체에 담아 해당 메소드의 매개변수로 넘겨줌
