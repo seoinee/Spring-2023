@@ -77,6 +77,7 @@
   - id/name 속성: bean을 구별하기 위한 식별자(유일한 값 지정)
   - class 속성: bean의 완전한 클래스 경로 지정(package 경로 포함)
 
+
 > Bena 객체 획득
 ```
 // Container 생성
@@ -87,13 +88,22 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
 ```
 - Bean을 관리하는 container(BeanFactory 또는 ApplicationContext 객체)에 대해 getBean() method 호출
 
-### 1.1 HttpServletRequest 메서드
-<br>
-<p align="center">
-	<img width="581" alt="HttpServletRequest 메서드" src="https://user-images.githubusercontent.com/46203866/180649881-a3b83e79-d302-4ab6-af09-b290c213058e.PNG">
-</p>
-
-<center>출처 : 스프링의 정석</center>
+##  의존 관계 설정 - 생성자 방식
+1. 생성자 방식(constructor-based injection)
+- Bean의 생성자(constructor)를 통해 의존 객체를 주입
+– 이용가능한 생성자가 bean 클래스에 정의되어야 함
+– 설정 방법
+▪ <constructor-arg>를 사용하여 생성자의 인자(argument)를 지정
+✓ <value>값</value>: int, double, String 등 기본 데이터 타입의 값을 전달
+✓ <ref bean=“bean 식별자”/>: bean 속성으로 bean 객체의 참조를 전달
+▪ 값이나 객체를 <constructor-arg>의 value, ref 속성을 통해 지정 가능
+✓ <constructor-arg value=“값” />
+✓ <constructor-arg ref =“bean 식별자” />
+– 효과
+▪ Container는 다른 bean이 의존하는 bean 객체를 먼저 생성한 후
+의존 객체나 값의 타입을 이용, 적절한 생성자를 찾아 실행
+✓ 의존 객체/값과 일치하거나 가장 근접한 타입의 인자를 가진 생성자 선택
+✓ 생성자 호출 시 의존 객체/값을 인자로 전달 (Dependency Injection)
 
 ###  2. HttpServletReponse
 <br>
