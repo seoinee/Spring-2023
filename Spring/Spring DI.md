@@ -71,6 +71,7 @@
 </beans>
 
 ```
+
 - <beans>: 설정 파일의 root element
 - <bean>: container에 의해 생성 및 관리될 bean 객체를 정의
   - id/name 속성: bean을 구별하기 위한 식별자(유일한 값 지정)
