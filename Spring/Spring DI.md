@@ -71,9 +71,10 @@
 </beans>
 
 ```
-
-- 프로그램을 URL 통해 요청시 tomcat이 HttpServletRequest 객체를 만들고 요청한 정보를 객체에 담아 해당 메소드의 매개변수로 넘겨줌
-  - ex) http://<hi>요청할URL/requestInfo로 요청시 HttpServletRequest request로 넘겨받음
+- <beans>: 설정 파일의 root element
+- <bean>: container에 의해 생성 및 관리될 bean 객체를 정의
+  - id/name 속성: bean을 구별하기 위한 식별자(유일한 값 지정)
+  - class 속성: bean의 완전한 클래스 경로 지정(package 경로 포함)
 
 ### 1.1 HttpServletRequest 메서드
 <br>
