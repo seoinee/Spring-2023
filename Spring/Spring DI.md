@@ -88,7 +88,10 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
 ```
 - Bean을 관리하는 container(BeanFactory 또는 ApplicationContext 객체)에 대해 getBean() method 호출
 
-##  의존 관계 설정 - 생성자 방식
+##  의존 관계 설정
+---
+<br>
+
 1. 생성자 방식(constructor-based injection)
 - Bean의 생성자(constructor)를 통해 의존 객체를 주입
 - 이용가능한 생성자가 bean 클래스에 정의되어야 함
@@ -104,32 +107,21 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
     - 의존 객체/값과 일치하거나 가장 근접한 타입의 인자를 가진 생성자 선택
     - 생성자 호출 시 의존 객체/값을 인자로 전달 (Dependency Injection)
 
-##  의존 관계 설정 - Setter method 방식
-<br>
-
-```
-@Controller
-public class RequestInfo {
-	@RequestMapping("/requestInfo")
-	public void main(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		"""
-		request 관련처리부분들
-		"""
-
-		response.setContentType("text/html");	//전송할 데이터의 형식지정
-		response.setCharacterEncoding("UTF-8");	//한글사용을 위한 인코딩
-		PrintWriter out = response.getWriter();	//response 객체에서 브라우저로 응답하기 위한 출력 스트림을 얻음
-		out.println(year + "년 " + month + "월 " + day + "일은 ");
-		out.println(yoil + "요일입니다.");
-	}
-}
-```
-
-- 브라우저에 응답하기위한 HttpServletResponse 객체도 tomcat이 해당 메소드의 매개변수로 넘겨줌
-- try - catch를 사용해야하지만 편의를 위해 IOException을 사용함
-- 위 코드처럼 단순 출력이 아닌 실제 웹처럼 출력시 html 태그를 사용해야함
-
-<br>
+2. Setter method 방식 (setter-based injection)
+- Property에 대한 setter method를 통해 의존 객체 주입
+- Bean class에 property에 대한 setter method가 정의되어 있어야 함
+  - Property와 setter method의 선언은 JavaBeans 규약을 따름
+     - private String name; // property 선언
+     - public void setName(String s) { … } // property에 대한 setter 선언
+- 설정 방법
+  - <property> 태그를 사용하여 값이나 의존 객체 지정
+    - <value>값</value>: int, double, String 등 기본 데이터 타입의 값을 전달
+    - <ref bean=“bean 식별자” />: bean 속성을 통해 의존 객체를 전달
+  - 값이나 bean 객체를 <property>의 속성 형태로도 지정 가능
+    - <property value=“값” />, <property ref=“bean 식별자” />
+- 효과
+  - Container는 property로 전달할 의존 객체를 먼저 생성
+  - 각 property에 대한 setter method를 실행하여 객체나 값을 전달
 
 ### 3. 프로토콜(Protocol)
 ---
