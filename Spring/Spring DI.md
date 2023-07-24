@@ -77,6 +77,7 @@
   - id/name 속성: bean을 구별하기 위한 식별자(유일한 값 지정)
   - class 속성: bean의 완전한 클래스 경로 지정(package 경로 포함)
 
+> Bena 객체 획득
 ```
 // Container 생성
 ApplicationContext ctx = new ClassPathXmlApplicationContext("springIdol.xml");
@@ -84,8 +85,6 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("springIdol.xml");
 Performer performer1 = (Performer) ctx.getBean("duke"); // type casting 필요
 Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
 ```
-
-> Bena 객체 획득
 - Bean을 관리하는 container(BeanFactory 또는 ApplicationContext 객체)에 대해 getBean() method 호출
 
 ### 1.1 HttpServletRequest 메서드
