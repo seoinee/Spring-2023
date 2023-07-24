@@ -96,7 +96,7 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
 - Bean의 생성자(constructor)를 통해 의존 객체를 주입
 - 이용가능한 생성자가 bean 클래스에 정의되어야 함
 - 설정 방법
-  - <constructor-arg>를 사용하여 생성자의 인자(argument)를 지정
+  - constructor-arg를 사용하여 생성자의 인자(argument)를 지정
     - <value>값</value>: int, double, String 등 기본 데이터 타입의 값을 전달
     - <ref bean=“bean 식별자”/>: bean 속성으로 bean 객체의 참조를 전달
   - 값이나 객체를 <constructor-arg>의 value, ref 속성을 통해 지정 가능
