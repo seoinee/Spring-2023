@@ -7,7 +7,7 @@
 ```
 
 ```
-
+>> 핵심기능
 - Java 객체("bean")의 life-cycle 관리
   - 객체 생성, 초기화, 이용, 삭제(소멸)
 - Dependency Injection(DI) 수행
