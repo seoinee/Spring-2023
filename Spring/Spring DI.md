@@ -124,41 +124,7 @@ Performer performer2 = ctx.getBean("duke", Performer.class); // type 제공
   - 각 property에 대한 setter method를 실행하여 객체나 값을 전달
 
 ** Anonymous bean 객체 생성 및 주입
-– <constructor-arg>나 <property>에서 <ref> 또는 ref 속성을 통해
-외부 bean 객체를 지정하지 않고 직접 필요한 의존 객체를 정의
-▪ <bean> element 중첩 사용
-– 내부에 선언된 anonymous bean은 식별자(id)를 갖지 않음
-▪ 공유(재사용) 불가
-
-### 3. 프로토콜(Protocol)
----
-<br>
-
-- 상호간의 통신을 위한 약속 또는 규칙
-- 주고받는 데이터에 대한 형식을 정의한 것
-
-### 3.1 HTTP (Hyper Text Transfer Protocol)
--	텍스트 기반 프로토콜
-	-	ex) HTML
--	상태를 유지하지 않음 (Stateless) : 서버가 클라이언트의 정보를 저장하지 않는 네트워크 프로토콜
-	-	요청에 대한 응답만을 처리함
-	-	이러한 점을 보완하기 위해 쿠기&세션을 통해 클라이언트를 구분할 수 있음
--	확장가능한 프로토콜 (확장성) : 기존에 HTTP에 정의된 기능을 확장할 수 있음
-	-	ex) 커스텀 헤더(header)를 통해 기능추가
-
-### 3.4 HTTP 응답메시지
----
-<br>
-<p align="center">
-<img width="658" alt="2 Http응답메시지- 상태코드" src="https://user-images.githubusercontent.com/46203866/180834178-58919c90-1f3d-4956-937c-14ab88d2114c.PNG">
-</p>
-
-<center>출처 : 스프링의 정석</center>
-
-|상태코드|의미||
-|:------:|:---:|---|
-|1xx|Informational|HTTP 1.1에서 추가됨, Client<->Server간 정보교환이 목적|
-|2xx|Success|성공|
-|3xx|Redirect|다른 URL 요청|
-|4xx|Client Error|클라이언트측에서 요청에러|
-|5xx|Server Error|서버측 에러, 클라이언트의 요청은 OK|
+- <constructor-arg>나 <property>에서 <ref> 또는 ref 속성을 통해 외부 bean 객체를 지정하지 않고 직접 필요한 의존 객체를 정의
+  - <bean> element 중첩 사용
+- 내부에 선언된 anonymous bean은 식별자(id)를 갖지 않음
+  - 공유(재사용) 불가
