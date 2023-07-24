@@ -14,7 +14,14 @@
   - 의존 관계에 따라 bean들을 연결
     - 의존하는 bean에 대한 참조 생성("bean wiring")
 
-- @RequestMapping - URL과 메서드를 연결함
+>> Container의 종류
+- BeanFactory interface의 구현체(class)
+  - Bean 객체를 생성하고 DI를 실행하는 기본 기능 제공
+- ApplicationContext interface 및 그 sub-interface의 구현체(class)
+  - BeanFactory의 기능을 포함하여 다양한 부가 기능을 추가적으로 제공
+    - Annotation 기반 설정
+    - Java code 기반 설정("JavaConfig")
+    - 웹 어플리케이션 관련 기능, 트랜잭션 처리, 메시지 처리 등
 
 <br>
 
