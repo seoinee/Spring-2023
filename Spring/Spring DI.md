@@ -5,15 +5,7 @@
 <br>
 
 ```
-// 1. 원격호출 가능한 프로그램으로 등록
-@Controller
-public class Hello {
-	// 2. URL과 메서드를 연결 @RequestMapping
-	@RequestMapping("/hello")
-	public void main() {
-		System.out.println("Hello");
-	}
-}
+
 ```
 
 - @Controller - 원격 호출이 가능한 프로그램으로 등록
