@@ -38,10 +38,10 @@
 - 구현 클래스: XmlBeanFactory, SimpleJndiBeanFactory, StaticListableBeanFactory 등
 
 > ApplicationContext interface
-– org.springframework.context.ApplicationContext
-– BeanFactory의 sub-interface
-– 기본적인 bean 관리 외에, annotation 기반 설정, 메시지 및 이벤트 처리, 국제화, 트랜잭션 처리 등 다양한 부가 기능 제공
-– 구현 클래스
+- org.springframework.context.ApplicationContext
+- BeanFactory의 sub-interface
+- 기본적인 bean 관리 외에, annotation 기반 설정, 메시지 및 이벤트 처리, 국제화, 트랜잭션 처리 등 다양한 부가 기능 제공
+- 구현 클래스
  - GenericXmlApplicationContext
    - File system 또는 classpath에 속한 XML file의 설정 정보를 이용
    - FileSystemXmlApplicationContext, ClassPathXmlApplicationContext
