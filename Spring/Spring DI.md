@@ -22,7 +22,20 @@
     - Annotation 기반 설정
     - Java code 기반 설정("JavaConfig")
     - 웹 어플리케이션 관련 기능, 트랜잭션 처리, 메시지 처리 등
-
+    - 
+> BeanFactory interface
+– org.springframework.beans.factory.BeanFactory
+- Spring container에 대한 기본적인 API 정의
+  - <T> T getBean(String name, Class<T> requiredType)
+    → 주어진 이름과 타입을 가진 bean을 찾아 반환
+  - <T> T getBean(Class<T> requiredType) → 주어진 타입을 가진 bean을 반환
+  - Object getBean(String name) → 주어진 이름을 가진 bean을 반환 (타입 변환 필요)
+  - Class<?> getType(String name) → 주어진 이름을 가진 bean의 타입을 반환
+  - boolean containsBean(String name)
+    → 주어진 이름을 가진 bean이 존재하는지 여부를 반환
+  - boolean isPrototype(String name) / boolean isSingleton(String name)
+  - boolean isTypeMatch(String name, Class targetType)
+– 구현 클래스: XmlBeanFactory, SimpleJndiBeanFactory, StaticListableBeanFactory 등
 <br>
 
 ##  HTTP 요청과 응답
