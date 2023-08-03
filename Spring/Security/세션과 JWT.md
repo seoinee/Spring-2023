@@ -43,4 +43,15 @@
 ## 세션 vs JWT
 - 세션 방식에서 서버는 로그인된 유저의 정보를 모두 저장하고 있어서 유저들의 통제가 JWT보다 비교적 쉬움.
 - 만약 PC와 모바일 기기에서 동시 접근하는 것을 막고 싶을 때 강제 로그아웃 시키는 기능은 세션을 통해 구현이 가능.
-- JWT를 서버가 발급하고 나면 JWT를 관리하지 않음. 오직 JWT를 받았을 때 JWT가 유효한 것인지만 확인하기 때문에 서버 자원과 비용을 절감할 수 있음. 그러나 JWT가 수명이 길어서 제 3잦에게 탈취당할 경우가 발생할 수 있음.
+- JWT를 서버가 발급하고 나면 JWT를 관리하지 않음. 오직 JWT를 받았을 때 JWT가 유효한 것인지만 확인하기 때문에 서버 자원과 비용을 절감할 수 있음.
+- 그러나 JWT가 수명이 길어서 제 3자에게 탈취당할 경우가 발생할 수 있음.
+- 이를 보완한 방법 중 하나로 access token & refresh token 방식이 있는데 두개의 토큰 모두 JWT임.
+
+### access token & refresh token 
+- access token & refresh token 방식은 토큰들에 유효기간을 주어서 보안을 강화시킨 것.
+- access token은 유효가간이 짧은 토큰이이고, refresh token은 access token보다 유효기간이 긴 토큰임.
+  1. 사용자가 로그인을 하면 서버로부터 access token, refresh token 2개의 토큰을 받는다. 이때 서버는 refresh token을 안전한 저장소에 저장.
+  2. 서버로부터 받은 access token의 유효 기간이 지나지 않은 경우 사용자가 어떤 요청을 보낼 때 access token을 함께 보내고 서버는 유효한지 확인 후 응답을 보냄.
+  3. 서버로부터 받은 access token의 유효 기간이 지난 경우 사용자는 refresh token과 함께 요청을 보내고, 저장소에 저장되어 있던 refresh token과 비교한 후에 유효하다면 새로운 access token과 응답을 함께 보냄
+ 
+#######출처: https://velog.io/@gotaek/%EC%84%B8%EC%85%98Session%EA%B3%BC-JWT
