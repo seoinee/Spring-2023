@@ -54,4 +54,4 @@
   2. 서버로부터 받은 access token의 유효 기간이 지나지 않은 경우 사용자가 어떤 요청을 보낼 때 access token을 함께 보내고 서버는 유효한지 확인 후 응답을 보냄.
   3. 서버로부터 받은 access token의 유효 기간이 지난 경우 사용자는 refresh token과 함께 요청을 보내고, 저장소에 저장되어 있던 refresh token과 비교한 후에 유효하다면 새로운 access token과 응답을 함께 보냄
  
-####출처: https://velog.io/@gotaek/%EC%84%B8%EC%85%98Session%EA%B3%BC-JWT
+###### 출처: https://velog.io/@gotaek/%EC%84%B8%EC%85%98Session%EA%B3%BC-JWT
