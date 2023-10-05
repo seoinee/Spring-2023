@@ -79,7 +79,8 @@
 - JWT 방식은 한 번 만들어 클라이언트에게 전달하면 제어가 불가능하기 때문에 만료 시간을 필수적으로 넣어 주어야 함.
 
 ### Filter Chain
-![image](https://github.com/seoinee/TIL/assets/96633718/82458193-fefe-4875-9918-7dfee73efe53)
+![image](https://github.com/seoinee/TIL/assets/96633718/5364f85d-9d47-4bf9-86d5-c7ccbc82cea6)
+
 
 
 
