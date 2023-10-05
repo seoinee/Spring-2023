@@ -77,7 +77,10 @@
   - 애플리케이션 서버는 전달 받은 JWT 토큰의 유효성을 직접 검사하여 사용자 인증을 할 수 있다.
 - JWT 방식은 확장성에 큰 강점을 가짐.
 - JWT 방식은 한 번 만들어 클라이언트에게 전달하면 제어가 불가능하기 때문에 만료 시간을 필수적으로 넣어 주어야 함.
-- 
+
+### Filter Chain
+![image](https://github.com/seoinee/TIL/assets/96633718/82458193-fefe-4875-9918-7dfee73efe53)
+
 
 
 https://velog.io/@tmdgh0221/Spring-Security-%EC%99%80-OAuth-2.0-%EC%99%80-JWT-%EC%9D%98-%EC%BD%9C%EB%9D%BC%EB%B3%B4
