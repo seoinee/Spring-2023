@@ -79,7 +79,52 @@
 - JWT 방식은 한 번 만들어 클라이언트에게 전달하면 제어가 불가능하기 때문에 만료 시간을 필수적으로 넣어 주어야 함.
 
 ### Filter Chain
-![image](https://github.com/seoinee/TIL/assets/96633718/5364f85d-9d47-4bf9-86d5-c7ccbc82cea6)
+- cors 사용
+- 세션 매니저 무상태성으로 변경 (세션 사용안함)
+- csrf 사용안함
+- header <frame></frame> 끄기 -> h2-console 을 위함
+- form login 사용안함
+- http basic login 사용안함
+- 인증 또는 인가에 대한 exception 핸들링 클래스를 정의
+- 접근 허용 url 설정 (auth 는 이메일로 가입, oauth 는 social 로 가입할 때 사용)
+- authorizationEndpoint 는 각 플랫폼으로 리다이렉트를 하기위한 기본 url
+   -> http://localhost:8080/oauth2/authorize/naver -> 네이버 로그인화면 이동
+- redirectEndpoint
+   -> 네이버로 부터 accessToken 을 받아왔을 때 우리 서버에서 처리 할 url
+   -> http://localhost:8080/oauth2/callback/naver -> naver 는 registrationId 가 된다
+- userInfoEndpoint
+   -> accessToken 을 가지고 플랫폼(네이버)에서 해당 유저에 대한 정보를 가져온다 (restTemplate 이용)
+   -> userService 를 통해 가져온 정보를 가공한다
+- successHandler
+   -> Client 에서 요청한 redirect_uri 파라미터가 서버 application.yml 에 authorizedRedirectUris 에 설정과 같은 지
+       매칭하는 작업과 토큰을 생성하여 해당 리다이렉트 주소로 토큰을 파라미터로 넘겨주는 일을 한다
+   -> { 해당 주소 } ?token={ JWT Token }
+- failureHanlder
+   -> 에러를 처리하는 일을 하며, 해당 리다이렉트 주소 리다이렉트 하며 에러메시지를 전달한다
+   -> { 해당 주소 } ?error={ message }
+- TokenAuthenticationFilter 를 UsernameAuthenticationFilter 앞에 놓아 인증을 시도하는 필터로 사용된다
+   -> 클라이언트에서 Header 에 Authorization Bearer {JWT} 을 넘겨주어야 인증이 된다
+
+-  .oauth2Login()
+1. authorizationEndpoint : 프론트엔드에서 백엔드로 소셜로그인 요청을 보내는 URI입니다
+기본 URI는 /oauth2/authorization/{provider} 입니다. ex) /oauth2/authorization/google
+URI를 변경하고 싶으면 baseUri(uri)를 사용하여 설정합니다.
+위에 같이 설정하면 /oauth2/authorize/{provider}가 됩니다. ex) /oauth2/authorize/google
+authorizationRequestRepository : Authorization 과정에서 기본으로 Session을 사용하지만 Cookie로 변경하기 위해 설정합니다
+2. redirectionEndpoint : Authorization 과정이 끝나면 Authorization Code와 함께 리다이렉트할 URI입니다
+기본 URI는 /login/oauth2/code/{provider} 입니다. ex) /login/oauth2/code/google
+URI를 변경하고 싶으면 마찬가지로 baseUri(uri)를 사용하여 설정합니다.
+위에 같이 설정하면 /oauth2/callback/{provider}가 됩니다. ex) /oauth2/callback/google
+3. userInfoEndPoint : Provider로부터 획득한 유저정보를 다룰 service class를 지정합니다
+4. successHandler : OAuth2 로그인 성공시 호출할 handler
+5. failureHandler : OAuth2 로그인 실패시 호출할 handler
+- exceptionHandling() : JWT를 다룰 때 생길 excepion을 처리할 class를 지정합니다
+authenticationEntryPoint : 인증 과정에서 생길 exception을 처리
+accessDeniedHandler : 인가 과정에서 생길 exception을 처리
+- addFilterBefore : 모든 request에서 JWT를 검사할 filter를 추가합니다
+UsernamePasswordAuthenticationFilter에서 클라이언트가 요청한 리소스의 접근권한이 없을 때 막는 역할을 하기 때문에 이 필터 전에 jwtAuthenticationFilter를 실행
+
+
 
 
 
