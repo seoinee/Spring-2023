@@ -4,6 +4,8 @@
 
 결제 서비스 이용하려면 개발 테스트 후 사업자 등록 필수
 
+아임포트(I'mport)는,
+PG사 결제모듈에 대한 연동 개발을 진행할 때, 다양한 개발환경에서 보다 쉽고 빠르게 개발할 수 있도록 제공되는 결제 플랫폼 혹은 결제 호스팅 서비스 입니다.
 
 아이엠포트(포트원) - https://github.com/iamport/iamport-manual/tree/master/%EC%9D%B8%EC%A6%9D%EA%B2%B0%EC%A0%9C/screenshot/background 
 
